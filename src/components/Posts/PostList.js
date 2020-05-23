@@ -72,7 +72,7 @@ class PostList extends Component {
       : '';
   };
 
-  reduceDescriptionLength = (description, limit = 150) => {
+  reduceDescriptionLength = (description, limit = 100) => {
     let newDesc = [];
     if (description.length >= limit) {
       description.split(' ').reduce((acc, cur) => {
