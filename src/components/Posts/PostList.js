@@ -108,7 +108,9 @@ class PostList extends Component {
               {post.title}
               <div className="date">{post.date}</div>
             </div>
-            <div className="extra text">{post.description}</div>
+            <div className="extra text">
+              {this.reduceDescriptionLength(post.description)}
+            </div>
             <div
               className="meta"
               style={{ cursor: 'pointer' }}
