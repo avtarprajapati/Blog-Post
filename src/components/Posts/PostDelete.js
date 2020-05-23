@@ -21,7 +21,7 @@ class PostDelete extends Component {
         >
           Delete
         </button>
-        <Link to={`/post/${this.props.post.id}`} className="ui button ">
+        <Link to={`/`} className="ui button ">
           Cancel
         </Link>
       </>
