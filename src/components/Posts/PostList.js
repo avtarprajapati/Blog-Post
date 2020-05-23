@@ -123,7 +123,8 @@ class PostList extends Component {
       if (this.state.active === 'all') {
         return this.renderPostsList(this.props.posts);
       } else if (this.state.active === 'home') {
-        if (!this.props.ownFollow) return;
+        if (!this.props.ownFollow)
+          return 'No user to follow to get post recently';
         let followPosts = this.props.ownFollow.map((id) =>
           this.props.posts.filter((post) => post.userId === id)
         );
@@ -137,14 +138,17 @@ class PostList extends Component {
     return this.renderPostsList(this.props.posts);
   }
 
-  render() {
+  message = () => {
     if (this.props.posts.length === 0)
       return 'Their is no Post to create post please sign in';
     if (!this.props.posts.length) return 'Loading...';
+  };
 
+  render() {
     return (
       <>
         <div>{this.showNav()}</div>
+        {this.message()}
         {this.renderPost()}
       </>
     );
