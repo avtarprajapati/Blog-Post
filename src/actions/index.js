@@ -76,10 +76,14 @@ export const deletePost = (id) => async (dispatch, getState) => {
 
 // LIKE
 export const likePost = (id, userId) => async (dispatch, getState) => {
-  // const reponse = await posts.patch(`/api/posts/${id}`, values);
-  console.log(getState().posts);
+  // console.log(getState().posts[id].like);
+  const newLike = getState().posts[id].like;
 
-  dispatch({ type: POST_LIKE, payload: { id, userId } });
+  const reponse = await posts.patch(`/api/posts/${id}`, {
+    like: [...newLike, userId]
+  });
+
+  dispatch({ type: POST_LIKE, payload: reponse.data });
 };
 
 export const RemoveLikePost = (id, userId) => {
