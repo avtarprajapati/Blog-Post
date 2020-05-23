@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 import history from '../../history';
 import { fetchPosts, likePost, RemoveLikePost } from '../../actions';
-// import Nav from '../Header/Nav';
 
 import './PostList.scss';
 
@@ -139,12 +138,13 @@ class PostList extends Component {
   }
 
   render() {
+    if (this.props.posts.length === 0)
+      return 'Their is no Post to create post please sign in';
     if (!this.props.posts.length) return 'Loading...';
 
     return (
       <>
         <div>{this.showNav()}</div>
-        {/* <div>{this.renderPostsList(this.props.posts)}</div> */}
         {this.renderPost()}
       </>
     );
