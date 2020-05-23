@@ -75,7 +75,6 @@ class PostList extends Component {
 
   renderPostsList(posts = this.props.posts) {
     if (!posts.length) return;
-    console.log(posts);
 
     return posts.map((post) => (
       <div key={post.id} className="ui large feed postList">
@@ -125,7 +124,6 @@ class PostList extends Component {
       if (this.state.active === 'all') {
         return this.renderPostsList(this.props.posts);
       } else if (this.state.active === 'home') {
-        console.log(this.props.ownFollow);
         if (!this.props.ownFollow) return;
         let followPosts = this.props.ownFollow.map((id) =>
           this.props.posts.filter((post) => post.userId === id)
