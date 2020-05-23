@@ -76,6 +76,7 @@ class PostList extends Component {
   renderPostsList(posts = this.props.posts) {
     if (!posts.length) return;
     console.log(posts);
+
     return posts.map((post) => (
       <div key={post.id} className="ui large feed postList">
         <div className="event">
@@ -110,7 +111,7 @@ class PostList extends Component {
                     color: `${this.likeColor(post.like)}`
                   }}
                 ></i>
-                {!post.like.length ? '0' : post.like.length} Likes
+                {console.log(post.like.length)} Likes
               </span>
             </div>
           </div>
