@@ -1,0 +1,18 @@
+.follow {
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid #3498db;
+  font-style: 1.4rem;
+  margin-left: 1rem;
+  padding: 0.2rem 0.5rem;
+  color: #3498db;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  letter-spacing: 0.08rem;
+}
+
+.following {
+  background-color: #3498db;
+  color: #ffffff;
+}

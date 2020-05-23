@@ -1,0 +1,23 @@
+.navbar {
+  margin-bottom: 1rem !important;
+}
+
+.navBtn {
+  background-color: transparent;
+  border: none;
+  color: #2980b9;
+  outline: none;
+  cursor: pointer;
+}
+
+.postList {
+  // background-color: #ecf0f1 !important;
+  padding: 1rem;
+  // cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #d5d6d6;
+
+  .profileImg {
+    margin-top: 0.8rem;
+  }
+}
