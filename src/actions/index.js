@@ -65,6 +65,7 @@ export const editPost = (id, values) => async (dispatch, getState) => {
   const reponse = await posts.patch(`/api/posts/${id}`, values);
 
   dispatch({ type: EDIT_POST, payload: reponse.data });
+  history.push('/');
 };
 
 export const deletePost = (id) => async (dispatch, getState) => {
