@@ -22,23 +22,15 @@ export default (state = {}, action) => {
     case DELETE_POST:
       return _.omit(state, action.payload);
     case POST_LIKE:
-      // let { like } = state[action.payload.id];
-      // let newLike = [...like, action.payload.userId];
-
       return {
         ...state,
         [action.payload.id]: action.payload
       };
 
     case POST_REMOVE_LIKE:
-      let l = state[action.payload.id].like;
-      let newL = l.filter((uId) => uId !== action.payload.userId);
-
-      if (!state[action.payload.id].like.length) newL = [];
-
       return {
         ...state,
-        [action.payload.id]: { ...state[action.payload.id], like: newL }
+        [action.payload.id]: action.payload
       };
 
     default:
