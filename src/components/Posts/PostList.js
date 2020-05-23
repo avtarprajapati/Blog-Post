@@ -125,7 +125,7 @@ class PostList extends Component {
       if (this.state.active === 'all') {
         return this.renderPostsList(this.props.posts);
       } else if (this.state.active === 'home') {
-        if (!this.props.ownFollow.length) return;
+        if (!this.props.ownFollow.length) return this.renderPostsList();
         let followPosts = this.props.ownFollow.map((id) =>
           this.props.posts.filter((post) => post.userId === id)
         );
