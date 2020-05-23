@@ -111,7 +111,7 @@ class PostList extends Component {
                     color: `${this.likeColor(post.like)}`
                   }}
                 ></i>
-                {console.log(`post ${post.id} ${post.like.length}`)} Likes
+                {post.like.length} Likes
               </span>
             </div>
           </div>
@@ -135,7 +135,7 @@ class PostList extends Component {
         );
       }
     }
-    this.renderPostsList(this.props.posts);
+    return this.renderPostsList(this.props.posts);
   }
 
   render() {
