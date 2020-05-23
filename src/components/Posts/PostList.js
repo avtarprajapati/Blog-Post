@@ -110,7 +110,7 @@ class PostList extends Component {
                     color: `${this.likeColor(post.like)}`
                   }}
                 ></i>
-                {post.like ? [] : post.like.length} Likes
+                {post.like.length ? post.like.length : 0} Likes
               </span>
             </div>
           </div>
