@@ -72,6 +72,20 @@ class PostList extends Component {
       : '';
   };
 
+  reduceDescriptionLength = (description, limit = 40) => {
+    let newDesc = [];
+    if (description.length >= limit) {
+      description.split(' ').reduce((acc, cur) => {
+        if (acc + cur.length <= limit) {
+          newDesc.push(cur);
+        }
+        return acc + cur.length;
+      }, 0);
+      return `${newDesc.join(' ')} ...`;
+    }
+    return description;
+  };
+
   renderPostsList(posts = this.props.posts) {
     if (!posts.length) return;
 
