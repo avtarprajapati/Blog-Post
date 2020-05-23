@@ -111,7 +111,7 @@ class PostList extends Component {
                     color: `${this.likeColor(post.like)}`
                   }}
                 ></i>
-                {console.log(post.like)} Likes
+                {console.log(`post ${post.id} ${post.like}`)} Likes
               </span>
             </div>
           </div>
