@@ -75,6 +75,7 @@ class PostList extends Component {
 
   renderPostsList(posts = this.props.posts) {
     if (!posts.length) return;
+    console.log(posts);
     return posts.map((post) => (
       <div key={post.id} className="ui large feed postList">
         <div className="event">
