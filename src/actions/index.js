@@ -41,7 +41,9 @@ export const createPost = (values) => async (dispatch, getState) => {
   const reponse = await posts.post('/api/posts', {
     ...values,
     date,
-    ...getState().auth
+    ...getState().auth,
+    like: [],
+    following: []
   });
 
   dispatch({ type: CREATE_POST, payload: reponse.data });
