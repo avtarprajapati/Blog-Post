@@ -4,9 +4,7 @@ import {
   FETCH_POST,
   FETCH_POSTS,
   EDIT_POST,
-  DELETE_POST,
-  POST_LIKE,
-  POST_REMOVE_LIKE
+  DELETE_POST
 } from '../actions/type';
 
 export default (state = {}, action) => {
@@ -21,18 +19,6 @@ export default (state = {}, action) => {
       return { ...state, [action.payload.id]: action.payload };
     case DELETE_POST:
       return _.omit(state, action.payload);
-    case POST_LIKE:
-      return {
-        ...state,
-        [action.payload.id]: action.payload
-      };
-
-    case POST_REMOVE_LIKE:
-      return {
-        ...state,
-        [action.payload.id]: action.payload
-      };
-
     default:
       return state;
   }

@@ -34,6 +34,7 @@ class PostDelete extends Component {
   }
 
   render() {
+    console.log(this.props.post);
     return (
       <Modal
         title="Delete Post"

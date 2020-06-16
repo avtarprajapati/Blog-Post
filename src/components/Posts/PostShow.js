@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPost, followingPost, unfollowingPost } from '../../actions';
+import { fetchPost } from '../../actions';
 
 import './PostShowStyle.scss';
 
 class PostShow extends Component {
-  state = {
-    follow: false
-  };
-
   componentDidMount() {
     if (!this.props.post) {
       const { id } = this.props.match.params;
       this.props.fetchPost(id);
     }
-
-    let followPost = this.props.ownFollow ?? [];
-
-    followPost.findIndex((uId) => uId === this.props.post.userId) !== -1
-      ? this.setState({ follow: true })
-      : this.setState({ follow: false });
   }
 
   renderAdmin = () => {
@@ -39,22 +29,6 @@ class PostShow extends Component {
           </Link>
         </div>
       );
-    }
-  };
-
-  toggle = () => {
-    this.setState((prevState) => ({
-      follow: !prevState.follow
-    }));
-
-    const { post, userId } = this.props;
-    // after completed this function state has change
-    if (this.state.follow) {
-      // unfollow action call
-      this.props.unfollowingPost(userId, post.userId);
-    } else {
-      // follow action call
-      this.props.followingPost(userId, post.userId);
     }
   };
 
@@ -87,12 +61,6 @@ class PostShow extends Component {
               {name}
               <div className="sub header">{date}</div>
             </div>
-            <button
-              className={`follow ${this.state.follow ? 'following' : ''}`}
-              onClick={() => this.toggle()}
-            >
-              {this.state.follow ? 'following' : 'follow'}
-            </button>
           </h4>
         </div>
         <div>
@@ -111,17 +79,12 @@ class PostShow extends Component {
 
 function mapStateToProps(state, ownProps) {
   const { id } = ownProps.match.params;
-  // console.log(state.auth.userId);
-  // console.log(state.ownFollow[state.auth.userId]);
   return {
     post: state.posts[id],
-    userId: state.auth.userId,
-    ownFollow: state.ownFollow[state.auth.userId]
+    userId: state.auth.userId
   };
 }
 
 export default connect(mapStateToProps, {
-  fetchPost,
-  followingPost,
-  unfollowingPost
+  fetchPost
 })(PostShow);
